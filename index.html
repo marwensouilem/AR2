@@ -1,58 +1,38 @@
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebAR Alphabet</title>
-   
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
-   
+    <title>Apprentissage de l'Alphabet en AR</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f4f4; }
+        model-viewer { width: 100%; height: 500px; }
+    </style>
 </head>
-<body style="margin: 0; overflow: hidden;">
-    <script type="module" >
-        import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.126.1/examples/jsm/loaders/GLTFLoader.js';
-import { ARButton } from 'https://cdn.jsdelivr.net/npm/three@0.128/examples/jsm/webxr/ARButton.js';
-        let scene, camera, renderer, controller;
-        let model;
+<body>
 
-        // Initialisation de Three.js
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 20);
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.xr.enabled = true;
-            document.body.appendChild(renderer.domElement);
+    <!-- 📌 `model-viewer` avec un modèle 3D et AR -->
+    <model-viewer 
+        src="models/oranges.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        auto-rotate 
+        ios-src="models/oranges.usdz">
+        
+        <!-- 📢 Bouton pour activer AR -->
+        <button slot="ar-button" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); padding: 10px 20px; font-size: 18px;">
+            Voir en AR
+        </button>
+    </model-viewer>
 
-            // Ajouter un bouton AR
-            document.body.appendChild(ARButton.createButton(renderer));
 
-            // Charger le modèle 3D
-            const loader = new GLTFLoader();
-            loader.load('models/oranges.glb', function (gltf) { // Remplace "airplane.glb" par ton modèle
-                model = gltf.scene;
-                model.position.set(0, 0, -2); // Position devant la caméra
-                model.scale.set(0.5, 0.5, 0.5); // Réduction de taille
-                scene.add(model);
-            });
-
-            // Ajout d'une lumière
-            const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
-            scene.add(light);
-
-            // Lancer le rendu
-            renderer.setAnimationLoop(render);
-        }
-
-        function render() {
-            renderer.render(scene, camera);
-        }
-
-        init();
+    <script>
+        document.querySelector("model-viewer").addEventListener("click", () => {
+            document.getElementById("sound").play();
+        });
     </script>
+
 </body>
 </html>
