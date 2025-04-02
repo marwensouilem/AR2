@@ -11,9 +11,10 @@
     </style>
 </head>
 <body>
-    <model-viewer id="toggle-model" src="/models/shishkebab.glb" alt="A 3D model of a shishkebab" shadow-intensity="1" camera-controls touch-action="pan-y" auto-rotate></model-viewer>
+    <model-viewer id="toggle-model" src="/models/sa_alphabet_lore.glb" ios-src="models/A_Alphabet_Lore.usdz" camera-controls touch-action="pan-y" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls 
+        auto-rotate scale="0.2 0.2 0.2" shadow-intensity="1"></model-viewer>
                 <script>
-                  const models = ['shishkebab.glb', 'Astronaut.glb'];
+                  const models = ['a_alphabet_lore.glb', 'b_alphabet_lore.glb',  'c_alphabet_lore.glb', ];
                   const toggleModel = document.querySelector('#toggle-model');
                   let j = 0;
                   setInterval(() => toggleModel.setAttribute('src', `../../shared-assets/models/${models[j++ % 2]}`), 2000);
