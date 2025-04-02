@@ -19,7 +19,7 @@
                   const toggleModel = document.querySelector('#toggle-model');
                   let j = 0;
                     let s =0;
-                  setInterval(() => {toggleModel.setAttribute('src', `models/${models[j++ % 2]}`);toggleModel.setAttribute('src', `models/${modelsios[s++ % 2]}`);, 2000);
+                  setInterval(() => {toggleModel.setAttribute('src', `models/${models[j++ % 2]}`);toggleModel.setAttribute('src', `models/${modelsios[s++ % 2]}`);}, 2000);
                 </script>
 <!--<model-viewer camera-controls touch-action="pan-y" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls 
         auto-rotate scale="0.2 0.2 0.2" shadow-intensity="1" src="models/RobotExpressive.glb"  ios-src="models/RobotExpressive.usdz"></model-viewer>-->
