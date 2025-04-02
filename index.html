@@ -14,10 +14,12 @@
     <model-viewer id="toggle-model" src="/models/sa_alphabet_lore.glb" ios-src="models/A_Alphabet_Lore.usdz" camera-controls touch-action="pan-y" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls 
         auto-rotate scale="0.2 0.2 0.2" shadow-intensity="1"></model-viewer>
                 <script>
-                  const models = ['a_alphabet_lore.glb', 'b_alphabet_lore.glb',  'c_alphabet_lore.glb', ];
+                  const models = ['a_alphabet_lore.glb', 'b_alphabet_lore.glb',  'c_alphabet_lore.glb' ];
+                    const modelsios = ['A_Alphabet_Lore.usdz', 'B_Alphabet_Lore.usdz', 'C_Alphabet_Lore.usdz' ];
                   const toggleModel = document.querySelector('#toggle-model');
                   let j = 0;
-                  setInterval(() => toggleModel.setAttribute('src', `../../shared-assets/models/${models[j++ % 2]}`), 2000);
+                    let s =0;
+                  setInterval(() => {toggleModel.setAttribute('src', `models/${models[j++ % 2]}`);toggleModel.setAttribute('src', `models/${modelsios[s++ % 2]}`);, 2000);
                 </script>
 <!--<model-viewer camera-controls touch-action="pan-y" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls 
         auto-rotate scale="0.2 0.2 0.2" shadow-intensity="1" src="models/RobotExpressive.glb"  ios-src="models/RobotExpressive.usdz"></model-viewer>-->
