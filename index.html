@@ -11,8 +11,15 @@
     </style>
 </head>
 <body>
-<model-viewer camera-controls touch-action="pan-y" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls 
-        auto-rotate scale="0.2 0.2 0.2" shadow-intensity="1" src="models/RobotExpressive.glb"  ios-src="models/RobotExpressive.usdz"></model-viewer>
+    <model-viewer id="toggle-model" src="/models/shishkebab.glb" alt="A 3D model of a shishkebab" shadow-intensity="1" camera-controls touch-action="pan-y" auto-rotate></model-viewer>
+                <script>
+                  const models = ['shishkebab.glb', 'Astronaut.glb'];
+                  const toggleModel = document.querySelector('#toggle-model');
+                  let j = 0;
+                  setInterval(() => toggleModel.setAttribute('src', `../../shared-assets/models/${models[j++ % 2]}`), 2000);
+                </script>
+<!--<model-viewer camera-controls touch-action="pan-y" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls 
+        auto-rotate scale="0.2 0.2 0.2" shadow-intensity="1" src="models/RobotExpressive.glb"  ios-src="models/RobotExpressive.usdz"></model-viewer>-->
     <!-- 📌 `model-viewer` avec un modèle 3D et AR -->
   <!--  <model-viewer 
         src="models/roleplay_talking_p7.glb" 
