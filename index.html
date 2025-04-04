@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<model-viewer src="model/AModel.glb" poster="model/AModel.webp" ios-src="models/AModel.usdz" shadow-intensity="1" ar camera-controls touch-action="pan-y" alt="A 3D model carousel">
+<model-viewer src="models/AModel.glb" poster="models/AModel.webp" ios-src="models/AModel.usdz" shadow-intensity="1" ar camera-controls touch-action="pan-y" alt="A 3D model carousel">
   
   <button slot="ar-button" id="ar-button">
     View in your space
@@ -25,15 +25,15 @@
 
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" onclick="switchSrc(this, 'AModel')" style="background-image: url('model/AModel.webp');">
+      <button class="slide selected" onclick="switchSrc(this, 'AModel')" style="background-image: url('models/AModel.webp');">
 
-      </button><button class="slide" onclick="switchSrc(this, 'BModel')" style="background-image: url('model/BModel.webp');">
+      </button><button class="slide" onclick="switchSrc(this, 'BModel')" style="background-image: url('models/BModel.webp');">
 
-      <!--</button><button class="slide" onclick="switchSrc(this, 'CModel')" style="background-image: url('model/CModel.webp');">
+      <!--</button><button class="slide" onclick="switchSrc(this, 'CModel')" style="background-image: url('models/CModel.webp');">
       
-      </button><button class="slide" onclick="switchSrc(this, 'DModel')" style="background-image: url('model/DModel.webp');">
+      </button><button class="slide" onclick="switchSrc(this, 'DModel')" style="background-image: url('models/DModel.webp');">
       
-      </button><button class="slide" onclick="switchSrc(this, 'EModel')" style="background-image: url('model/EModel.webp');">   --> 
+      </button><button class="slide" onclick="switchSrc(this, 'EModel')" style="background-image: url('models/EModel.webp');">   --> 
     </button></div>
   </div>
 </model-viewer>
@@ -42,7 +42,7 @@
   const modelViewer = document.querySelector("model-viewer");
 
   window.switchSrc = (element, name) => {
-    const base = "model/" + name;
+    const base = "models/" + name;
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.webp';
       modelViewer.setAttribute('ios-src',base + '.usdz')
