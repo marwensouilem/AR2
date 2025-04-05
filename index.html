@@ -100,7 +100,20 @@
 
 <script type="module">
   const modelViewer = document.querySelector("model-viewer");
+const listener = new THREE.AudioListener();
+camera.add( listener );
 
+// create a global audio source
+const sound = new THREE.Audio( listener );
+
+// load a sound and set it as the Audio object's buffer
+const audioLoader = new THREE.AudioLoader();
+audioLoader.load( 'sounds/ambient.ogg', function( buffer ) {
+	sound.setBuffer( buffer );
+	sound.setLoop( true );
+	sound.setVolume( 0.5 );
+	sound.play();
+})
   window.switchSrc = (element, name) => {
     const base = "models/" + name;
     modelViewer.src = base + '.glb';
@@ -272,9 +285,7 @@
 
     <script>
      
-        document.querySelector("model-viewer").addEventListener("click", () => {
-            document.getElementById("sound").play();
-        });
+    
     </script>
 
 </body>
