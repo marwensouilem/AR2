@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<model-viewer src="models/AModel.glb?sound=models/Asound.mp3"  ios-src="models/AModel.usdz?sound=models/Asound.mp3"  camera-controls touch-action="pan-y" autoplay ar ar-modes="webxr scene-viewer quick-look" camera-controls 
+<model-viewer src="models/AModel.glb?sound=models/Asound.mp3"  ios-src="models/AModel.usdz?sound=models/Asound.mp3"  camera-controls touch-action="pan-y" autoplay ar ar-modes="scene-viewer quick-look" camera-controls 
         auto-rotate scale="0.2 0.2 0.2" shadow-intensity="1">
   
   <button slot="ar-button" id="ar-button">
@@ -99,21 +99,7 @@
 </model-viewer>
 
 <script type="module">
-  const modelViewer = document.querySelector("model-viewer");
-const listener = new THREE.AudioListener();
-camera.add( listener );
-
-// create a global audio source
-const sound = new THREE.Audio( listener );
-
-// load a sound and set it as the Audio object's buffer
-const audioLoader = new THREE.AudioLoader();
-audioLoader.load( 'sounds/ambient.ogg', function( buffer ) {
-	sound.setBuffer( buffer );
-	sound.setLoop( true );
-	sound.setVolume( 0.5 );
-	sound.play();
-})
+ 
   window.switchSrc = (element, name) => {
     const base = "models/" + name;
     modelViewer.src = base + '.glb';
