@@ -22,3 +22,6 @@ function nextLetter() {
   currentIndex = (currentIndex + 1) % letters.length;
   updateModel();
 }
+document.querySelector('#model').addEventListener('model-loaded', () => {
+  console.log('Modèle chargé avec succès');
+});
