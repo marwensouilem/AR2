@@ -269,7 +269,12 @@
         <!-- 📢 Bouton pour activer AR -->
       
     </model-viewer>
-const audio = document.getElementById('model-audio');
+
+
+    
+     
+    <script>
+        const audio = document.getElementById('model-audio');
 
 document.getElementById('playAudio').addEventListener('click', () => {
   audio.play();
@@ -278,10 +283,6 @@ document.getElementById('playAudio').addEventListener('click', () => {
 document.getElementById('pauseAudio').addEventListener('click', () => {
   audio.pause();
 });
-
-    
-     
-    <script>
         document.querySelector("model-viewer").addEventListener("click", () => {
             document.getElementById("sound").play();
         });
